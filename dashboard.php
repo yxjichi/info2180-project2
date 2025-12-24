@@ -40,16 +40,22 @@ $contacts = $stmt->fetchAll();
 <head>
   <meta charset="UTF-8">
   <title>Dolphin CRM - Dashboard</title>
+  <link rel ="stylesheet" href="styles.css">
 </head>
+<div class="container">
 <body>
-
-  <?php require_once "sidebar.php"; ?>
-
+  <header>
+    <img src="dolphin.png" alt="Dolphin CRM Logo">
+    <h1>Dolphin CRM</h1>
+  </header>
+  <main>
   <h2>Dashboard</h2>
   <p>Logged in as: <?php echo htmlspecialchars($_SESSION["user_name"] ?? ""); ?></p>
 
   <p>
-    <a href="new_contact.php">+ Add Contact</a>
+    <form action = "add_contact.php">
+      <button type="submit">+ Add Contact</button>
+    </form>
   </p>
 
   <p>
@@ -90,6 +96,19 @@ $contacts = $stmt->fetchAll();
       </tbody>
     </table>
   <?php endif; ?>
-
+  </main>
+  <aside>
+<nav>
+  <ul>
+    <li><a href="dashboard.php">Home</a></li>
+    <li><a href="add_contact.php">New Contact</a></li>
+    <?php if (($_SESSION["user_role"] ?? "") === "Admin"): ?>
+        <li><a href="user.php">Users</a></li>
+    <?php endif; ?>
+    <li><a href="logout.php">Logout</a></li>
+  </ul>
+</nav>
+</aside>
+</div>
 </body>
 </html>

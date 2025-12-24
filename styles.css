@@ -41,7 +41,7 @@ main {
 /* ====== GRID LAYOUT ====== */
 .container {
     display: grid;
-    grid-template-columns: 1fr 350px; /* main content first, sidebar second */
+    grid-template-columns: 1fr 1000px; /* main content first, sidebar second */
     grid-template-rows: auto 1fr auto;
     grid-template-areas:
         "header header"
