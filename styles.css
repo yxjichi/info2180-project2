@@ -1,0 +1,100 @@
+/* header */
+header {
+    height: 60px;
+    background: black;
+    font-size: 18px;
+    color: white;
+    display: flex;
+    align-items: left;
+}
+
+header h1 {
+    display: flex;
+    align-items: left;
+    justify-content: center;
+    margin: 0 20px;
+    font-size: 24px;
+}
+
+header img {
+    height: 30px;
+    margin-right:0px;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 40px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    align-items: center;
+    justify-content: center;
+}
+/* ====== GRID LAYOUT ====== */
+.container {
+    display: grid;
+    grid-template-columns: 1fr 350px; /* main content first, sidebar second */
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        "header header"
+        "aside main"
+        "footer footer";
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Assign grid areas */
+header {
+    grid-area: header;
+}
+aside {
+    grid-area: aside;
+}
+main {
+    grid-area: main;
+}
+footer {
+    grid-area: footer;
+}
+
+/* Style the input fields (username/password) */
+input[type="email"], input[type="password"] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Ensures padding/border don't affect total width */
+}
+
+/* Style the login button */
+button[type="submit"] {
+    width: 100%;
+    background-color: #397fce; /* Green background */
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+/* footer */
+footer {
+    background: white;
+    color: grey;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+}
