@@ -38,15 +38,21 @@ if (isset($_GET["format"]) && $_GET["format"] === "json") {
 <head>
   <meta charset="UTF-8">
   <title>Dolphin CRM - Users</title>
+  <link rel ="stylesheet" href="styles.css">
 </head>
 <body>
-
-    <?php require_once "sidebar.php"; ?>
-
+  <header>
+    <img src="dolphin.png" alt="Dolphin CRM Logo">
+    <h1>Dolphin CRM</h1>
+  </header>
+  <div class="container">
+  <main>
   <h2>Users</h2>
-    <p>
-        <a href="add_user.php">+ Add User</a>
-    </p>
+  <p>
+    <form action = "add_user.php">
+      <button id="add-user" type="submit">+ Add User</button>
+    </form>
+  </p>
   <p>Logged in as: <?php echo htmlspecialchars($_SESSION["user_name"] ?? ""); ?></p>
 
   <?php if (count($users) === 0): ?>
@@ -73,5 +79,19 @@ if (isset($_GET["format"]) && $_GET["format"] === "json") {
       </tbody>
     </table>
   <?php endif; ?>
+</main>
+<aside>
+<nav>
+  <ul>
+    <li><a href="dashboard.php">Home</a></li>
+    <li><a href="add_contact.php">New Contact</a></li>
+    <?php if (($_SESSION["user_role"] ?? "") === "Admin"): ?>
+        <li><a href="user.php">Users</a></li>
+    <?php endif; ?>
+    <li><a href="logout.php">Logout</a></li>
+  </ul>
+</nav>
+</aside>
+    </div>
 </body>
 </html>

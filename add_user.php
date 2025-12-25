@@ -99,9 +99,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <head>
   <meta charset="UTF-8">
   <title>Dolphin CRM - Add User</title>
+  <link rel ="stylesheet" href="styles.css">
 </head>
 <body>
-
+  <header>
+    <img src="dolphin.png" alt="Dolphin CRM Logo">
+    <h1>Dolphin CRM</h1>
+  </header>
+  <div class="container">
+  <main>
 <h2>New User</h2>
 
 <?php if ($success): ?>
@@ -139,6 +145,19 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
   <button type="submit">Save</button>
 </form>
-
+</main>
+<aside>
+<nav>
+  <ul>
+    <li><a href="dashboard.php">Home</a></li>
+    <li><a href="add_contact.php">New Contact</a></li>
+    <?php if (($_SESSION["user_role"] ?? "") === "Admin"): ?>
+        <li><a href="user.php">Users</a></li>
+    <?php endif; ?>
+    <li><a href="logout.php">Logout</a></li>
+  </ul>
+</nav>
+</aside>
+    </div>
 </body>
 </html>

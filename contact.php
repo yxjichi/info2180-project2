@@ -146,10 +146,15 @@ $toggleLabel = ($currentType === "Sales Lead") ? "Switch to Support" : "Switch t
 <head>
   <meta charset="UTF-8">
   <title>Dolphin CRM - Contact Details</title>
+  <link rel ="stylesheet" href="styles.css">
 </head>
 <body>
-
-<?php require_once "sidebar.php"; ?>
+<header>
+    <img src="dolphin.png" alt="Dolphin CRM Logo">
+    <h1>Dolphin CRM</h1>
+  </header>
+    <div class="container">
+  <main>
 
 <h2><?php echo htmlspecialchars($fullName); ?></h2>
 
@@ -161,17 +166,18 @@ $toggleLabel = ($currentType === "Sales Lead") ? "Switch to Support" : "Switch t
   Updated: <?php echo htmlspecialchars($contact["updated_at"] ?? ""); ?>
 </p>
 
+<div id = "actions">
 <!-- Action buttons: assign to me + switch type :contentReference[oaicite:3]{index=3} -->
 <form method="POST" style="display:inline;">
   <input type="hidden" name="action" value="assign_to_me">
-  <button type="submit">Assign to me</button>
+  <button id = "assign" type="submit">Assign to me</button>
 </form>
 
 <form method="POST" style="display:inline;">
   <input type="hidden" name="action" value="switch_type">
-  <button type="submit"><?php echo htmlspecialchars($toggleLabel); ?></button>
+  <button id = "switch" type="submit"><?php echo htmlspecialchars($toggleLabel); ?></button>
 </form>
-
+</div>
 <hr>
 
 <h3>Contact Info</h3>
@@ -208,6 +214,19 @@ $toggleLabel = ($currentType === "Sales Lead") ? "Switch to Support" : "Switch t
   <br><br>
   <button type="submit">Add Note</button>
 </form>
-
+</main>
+<aside>
+<nav>
+  <ul>
+    <li><a href="dashboard.php">Home</a></li>
+    <li><a href="add_contact.php">New Contact</a></li>
+    <?php if (($_SESSION["user_role"] ?? "") === "Admin"): ?>
+        <li><a href="user.php">Users</a></li>
+    <?php endif; ?>
+    <li><a href="logout.php">Logout</a></li>
+  </ul>
+</nav>
+</aside>
+    </div>
 </body>
 </html>
