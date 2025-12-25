@@ -52,19 +52,22 @@ $contacts = $stmt->fetchAll();
   <h2>Dashboard</h2>
   <p>Logged in as: <?php echo htmlspecialchars($_SESSION["user_name"] ?? ""); ?></p>
 
-  <p>
-    <form action = "add_contact.php">
-      <button type="submit">+ Add Contact</button>
-    </form>
-  </p>
-
-  <p>
+  <div id = "filters">
+  <p> 
     Filter by:
     <a href="dashboard.php?filter=all">All</a> |
     <a href="dashboard.php?filter=sales">Sales Leads</a> |
     <a href="dashboard.php?filter=support">Support</a> |
     <a href="dashboard.php?filter=mine">Assigned to me</a>
   </p>
+  <p>           </p>
+  <p>
+    <form action = "add_contact.php">
+      <button id="add-contact" type="submit">+ Add Contact</button>
+    </form>
+  </p>
+</div>
+  
 
   <h3>Contacts (<?php echo htmlspecialchars($filter); ?>)</h3>
 
